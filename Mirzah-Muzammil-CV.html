@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mirzah Muzammil – CV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --black: #000000;
+    --gray-900: #111827;
+    --gray-700: #374151;
+    --gray-500: #6b7280;
+    --gray-300: #d1d5db;
+    --gray-100: #f3f4f6;
+    --white: #ffffff;
+    --page-w: 210mm;
+    --page-pad: 20mm;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e5e7eb;
+    font-family: 'Poppins', sans-serif;
+    color: var(--gray-900);
+    font-size: 8.5pt; /* Kept text small */
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: var(--page-w);
+    min-height: 297mm;
+    background: var(--white);
+    margin: 20px auto;
+    padding: var(--page-pad);
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--black);
+  }
+  .header__name {
+    font-weight: 700;
+    font-size: 22pt;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .header__title {
+    font-weight: 500;
+    font-size: 10pt;
+    color: var(--gray-700);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  
+  .header__contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 15px;
+    font-size: 8.5pt;
+    color: var(--gray-500);
+  }
+  .header__contact a {
+    color: var(--gray-700);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .header__contact a:hover {
+    color: var(--black);
+    text-decoration: underline;
+  }
+  .sep { color: var(--gray-300); }
+
+  /* ── SECTIONS ── */
+  section { margin-bottom: 20px; }
+  
+  .sec-title {
+    font-weight: 700;
+    font-size: 11pt;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--gray-300);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+  }
+
+  /* ── SUMMARY ── */
+  .summary p {
+    text-align: justify;
+    color: var(--gray-700);
+  }
+
+  /* ── SKILLS ── */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .skills-table tr {
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .skills-table tr:last-child {
+    border-bottom: none;
+  }
+  .skills-table td {
+    padding: 6px 0;
+    vertical-align: top;
+  }
+  .sk-label {
+    width: 25%;
+    font-weight: 700;
+    color: var(--black);
+  }
+  .sk-value {
+    color: var(--gray-700);
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-entry { margin-bottom: 15px; }
+  .exp-entry:last-child { margin-bottom: 0; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+  .exp-role {
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: var(--black);
+  }
+  .exp-date {
+    font-weight: 500;
+    font-size: 8.5pt;
+    color: var(--gray-500);
+  }
+  .exp-company {
+    font-weight: 500;
+    font-style: italic;
+    color: var(--gray-700);
+    margin-bottom: 6px;
+  }
+  
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    position: relative;
+    padding-left: 14px;
+    color: var(--gray-700);
+    margin-bottom: 4px;
+  }
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  /* ── PROJECTS ── */
+  .proj-entry { margin-bottom: 15px; }
+  .proj-entry:last-child { margin-bottom: 0; }
+  .proj-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+  .proj-title {
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: var(--black);
+  }
+  .proj-title a { color: var(--black); text-decoration: none; }
+  .proj-title a:hover { text-decoration: underline; }
+  .proj-desc {
+    color: var(--gray-700);
+    margin-bottom: 4px;
+    text-align: justify;
+  }
+  .proj-stack {
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--gray-900);
+    background: var(--gray-100);
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-entry { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: baseline; 
+    margin-bottom: 4px;
+  }
+  .edu-degree { font-weight: 700; font-size: 9pt; color: var(--black); }
+  .edu-uni { color: var(--gray-700); }
+  .edu-date { color: var(--gray-500); font-size: 8pt; font-weight: 500; }
+
+  /* ── PRINT ── */
+  @media print {
+    html, body { background: white; margin: 0; padding: 0; }
+    .page { 
+      margin: 0; 
+      box-shadow: none; 
+      width: 100%; 
+      min-height: auto;
+      padding: 15mm;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <div class="header__name">Mirzah Muzammil</div>
+    <div class="header__title">Full Stack Developer</div>
+    <div class="header__contact">
+      <span>+91 8075982323</span><span class="sep">|</span>
+      <span>mirzaahmuzammil@gmail.com</span><span class="sep">|</span>
+      <span>Kannur, Kerala 670009</span><span class="sep">|</span>
+      <span><a href="#">GitHub</a></span><span class="sep">|</span>
+      <span><a href="#">LinkedIn</a></span>
+    </div>
+  </header>
+
+  <section class="summary">
+    <div class="sec-title">Profile</div>
+    <p>
+      Full Stack Developer specializing in React.js, Next.js, Flutter, React Native, and Node.js backend development,
+      with strong expertise in building high-performance, SEO-optimized, and scalable web applications.
+      Proficient in designing RESTful and GraphQL APIs, microservice architectures, and database modeling
+      with MongoDB and SQL. Experienced with Redis caching, Zod schema validation, JWT-based authentication,
+      and Python-based AI microservices using DeepFace. Beyond the web, builds cross-platform mobile
+      applications with Flutter and React Native, delivering smooth, responsive, and visually polished interfaces
+      that feel native on both iOS and Android.
+    </p>
+  </section>
+
+  <section class="skills">
+    <div class="sec-title">Technical Skills</div>
+    <table class="skills-table">
+      <tr>
+        <td class="sk-label">Frontend</td>
+        <td class="sk-value">React.js, Next.js, TypeScript, Tailwind CSS, Material-UI, Redux, HTML5, CSS3, JavaScript</td>
+      </tr>
+      <tr>
+        <td class="sk-label">Mobile</td>
+        <td class="sk-value">Flutter, React Native, Cross-Platform iOS & Android</td>
+      </tr>
+      <tr>
+        <td class="sk-label">Backend</td>
+        <td class="sk-value">Node.js, Express.js, REST API, GraphQL, JWT Auth, Microservices</td>
+      </tr>
+      <tr>
+        <td class="sk-label">Validation & Caching</td>
+        <td class="sk-value">Zod, Redis</td>
+      </tr>
+      <tr>
+        <td class="sk-label">Database</td>
+        <td class="sk-value">MongoDB, Mongoose, SQL (PostgreSQL / MySQL)</td>
+      </tr>
+      <tr>
+        <td class="sk-label">AI / Python</td>
+        <td class="sk-value">Python, DeepFace, FastAPI / Flask</td>
+      </tr>
+      <tr>
+        <td class="sk-label">Tools & DevOps</td>
+        <td class="sk-value">Git, GitHub, Docker, Vercel, Web Performance, SEO</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="experience">
+    <div class="sec-title">Work Experience</div>
+    <div class="exp-entry">
+      <div class="exp-header">
+        <div class="exp-role">Front End Developer</div>
+        <div class="exp-date">Oct 2023 – Mar 2026</div>
+      </div>
+      <div class="exp-company">IOTICS Middle East</div>
+      <ul class="exp-bullets">
+        <li>Developed React.js applications using Redux for state management and RESTful API integration, improving scalability and maintainability.</li>
+        <li>Created SEO-friendly, high-performance web apps using Next.js with SSR and SSG, boosting organic search visibility.</li>
+        <li>Built and maintained Node.js/Express.js backend services with RESTful API design, JWT authentication, and MongoDB integration.</li>
+        <li>Designed and integrated a Smart Attendance Tracker backend: Node.js for core API logic and a Python DeepFace microservice for AI-powered face recognition-based attendance marking.</li>
+        <li>Implemented Redis caching to optimize API response times and reduce database load across backend services.</li>
+        <li>Applied Zod for robust schema validation and input sanitization in Node.js APIs, improving data integrity and error handling.</li>
+        <li>Built and deployed cross-platform mobile applications using Flutter, delivering native-like experiences on iOS and Android.</li>
+        <li>Deployed and managed applications on Vercel, configuring environments, custom domains, and optimizing build performance.</li>
+        <li>Integrated third-party APIs (Instagram Graph API, Facebook API) and libraries into existing React.js applications.</li>
+        <li>Built reusable UI components across multiple projects, ensuring design consistency and reducing development time.</li>
+        <li>Developed responsive layouts with HTML5, CSS3, Tailwind CSS, and Material-UI ensuring cross-browser compatibility.</li>
+        <li>Followed clean code practices, well-organized folder structures, and team coding standards throughout all projects.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="sec-title">Projects</div>
+
+    <div class="proj-entry">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://noor-website-teal.vercel.app/" target="_blank">Noor ↗</a></div>
+      </div>
+      <div class="proj-desc">
+        Developed a highly interactive, SEO-friendly multi-language website (English & French) using Next.js. Integrated GSAP for advanced scroll and page animations to deliver a premium user experience.
+      </div>
+      <div class="proj-stack">Stack: Next.js, React.js, GSAP, Tailwind CSS, i18n</div>
+    </div>
+
+    <div class="proj-entry">
+      <div class="proj-header">
+        <div class="proj-title">E-Commerce Mobile App</div>
+      </div>
+      <div class="proj-desc">
+        Built a cross-platform e-commerce application using React Native and TypeScript, adhering to scalable folder structures and industry best practices. Integrated Firebase for secure backend services, user authentication, and real-time data management.
+      </div>
+      <div class="proj-stack">Stack: React Native, TypeScript, Firebase</div>
+    </div>
+    
+    <div class="proj-entry">
+      <div class="proj-header">
+        <div class="proj-title">Smart Attendance Tracker</div>
+      </div>
+      <div class="proj-desc">
+        Engineered a full-stack attendance management system with a cross-platform Flutter frontend, a Node.js/Express.js backend and a Python microservice powered by DeepFace for real-time face recognition. The system supports JWT-based authentication, Redis session caching, MongoDB data persistence, and Zod-validated API payloads. The Python service communicates with the Node.js core via REST, enabling modular and independently deployable service components.
+      </div>
+      <div class="proj-stack">Stack: Flutter, Node.js, Express.js, Python, DeepFace, MongoDB, Redis, Zod, JWT, REST API</div>
+    </div>
+
+    <div class="proj-entry">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://www.monkeyadventures.co.in/" target="_blank">Monkey Adventure ↗</a></div>
+      </div>
+      <div class="proj-desc">
+        Revamped an existing website using Next.js with SSR and SEO optimization, achieving a top 5 Google search ranking. Integrated React animation libraries, Payload CMS for content management, and deployed on Vercel.
+      </div>
+      <div class="proj-stack">Stack: Next.js, React.js, Payload CMS, Tailwind CSS, Vercel</div>
+    </div>
+
+    <div class="proj-entry">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://learnspirepro.in" target="_blank">Learnspire LMS ↗</a></div>
+      </div>
+      <div class="proj-desc">
+        Developed a full-featured LMS using Next.js with an SEO-optimized landing page, role-based admin dashboard, and a student portal with video streaming powered by Mux for a scalable e-learning experience.
+      </div>
+      <div class="proj-stack">Stack: Next.js, Node.js, MongoDB, Mux, Tailwind CSS, REST API</div>
+    </div>
+  </section>
+
+  <section class="education">
+    <div class="sec-title">Education</div>
+    <div class="edu-entry">
+      <div>
+        <div class="edu-degree">Bachelor of Computer Science</div>
+        <div class="edu-uni">Kannur University</div>
+      </div>
+      <div class="edu-date">2020 – 2023</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

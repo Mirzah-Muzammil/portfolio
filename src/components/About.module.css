@@ -1,0 +1,20 @@
+.aboutCard {
+  padding: 3rem;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.text:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .aboutCard {
+    padding: 2rem;
+  }
+}
