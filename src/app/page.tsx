@@ -12,6 +12,7 @@ import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Education from '@/components/Education';
 import Preloader from '@/components/Preloader';
+import { useLenis } from 'lenis/react';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -21,19 +22,26 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const container = useRef<HTMLElement>(null);
 
+  const lenis = useLenis();
+
   useEffect(() => {
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-      // Allow scroll after loading
-      document.body.style.overflow = 'auto';
     }, 2000);
-
-    // Prevent scroll during loading
-    document.body.style.overflow = 'hidden';
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!lenis) return;
+    
+    if (isLoading) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  }, [lenis, isLoading]);
 
   useGSAP(() => {
     if (isLoading) return;
