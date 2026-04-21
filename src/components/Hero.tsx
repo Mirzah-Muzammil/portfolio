@@ -57,10 +57,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
         >
-          <a href="#" className="glass-panel" style={{
+          <a href="https://github.com/Mirzah-Muzammil" target="_blank" rel="noopener noreferrer" className="glass-panel" style={{
             fontSize:"12px"
           }} aria-label="GitHub">GitHub</a>
-          <a href="#" className="glass-panel"style={{
+          <a href="https://www.linkedin.com/in/mirzah-muzammil" target="_blank" rel="noopener noreferrer" className="glass-panel"style={{
             fontSize:"12px"
           }}aria-label="LinkedIn">LinkedIn</a>
         </motion.div>

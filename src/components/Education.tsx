@@ -35,8 +35,8 @@ export default function Education() {
         <div className={styles.footerContent}>
           <p>© {new Date().getFullYear()} Mirzah Muzammil. All rights reserved.</p>
           <div className={styles.footerLinks}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/Mirzah-Muzammil" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/mirzah-muzammil" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="mailto:mirzaahmuzammil@gmail.com">Email</a>
           </div>
         </div>
