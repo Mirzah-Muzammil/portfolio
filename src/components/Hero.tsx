@@ -13,6 +13,14 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
+        <motion.div 
+          className={styles.profileImageWrapper}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+        >
+          <img src="/mirzah.jpg" alt="Mirzah Muzammil" className={styles.profileImage} />
+        </motion.div>
         <motion.p 
           className={styles.greeting}
           initial={{ opacity: 0 }}
@@ -57,12 +65,13 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
         >
-          <a href="https://github.com/Mirzah-Muzammil" target="_blank" rel="noopener noreferrer" className="glass-panel" style={{
-            fontSize:"12px"
-          }} aria-label="GitHub">GitHub</a>
-          <a href="https://www.linkedin.com/in/mirzah-muzammil" target="_blank" rel="noopener noreferrer" className="glass-panel"style={{
-            fontSize:"12px"
-          }}aria-label="LinkedIn">LinkedIn</a>
+          <a 
+            href="/Mirzah Muzammil Full Stack– CV.pdf" 
+            download="Mirzah_Muzammil_CV.pdf"
+            className={styles.downloadBtn}
+          >
+            Download CV
+          </a>
         </motion.div>
       </motion.div>
 

@@ -5,7 +5,7 @@ import styles from './Education.module.css';
 
 export default function Education() {
   return (
-    <section className="section container" id="education">
+    <section className="section  container" id="education" style={{marginBottom: "-4rem"}}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

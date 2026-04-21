@@ -7,8 +7,8 @@
   --border-glass: rgba(255, 255, 255, 0.05);
   
   --text-primary: #f8f8f8;
-  --text-secondary: #a1a1aa;
-  --text-muted: #52525b;
+  --text-secondary: #b4c3ffff;
+  --text-muted: #b7b7b7ff;
   
   --accent-primary: #38bdf8;
   --accent-secondary: #818cf8;
@@ -27,9 +27,11 @@
 html, body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-raleway), sans-serif;
   scroll-behavior: auto;
   overflow-x: hidden;
+  letter-spacing: 2px;
+  
 }
 
 body {
