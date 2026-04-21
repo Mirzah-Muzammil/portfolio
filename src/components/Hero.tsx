@@ -6,7 +6,7 @@ import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
-    <section className={`${styles.hero} section container`}>
+    <section className={`${styles.hero} section `}>
       <motion.div 
         className={styles.content}
         initial={{ opacity: 0, y: 50 }}

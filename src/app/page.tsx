@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -11,14 +11,33 @@ import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Education from '@/components/Education';
+import Preloader from '@/components/Preloader';
+
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const container = useRef<HTMLElement>(null);
 
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      // Allow scroll after loading
+      document.body.style.overflow = 'auto';
+    }, 2000);
+
+    // Prevent scroll during loading
+    document.body.style.overflow = 'hidden';
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useGSAP(() => {
+    if (isLoading) return;
+
     // Parallel/Parallax scroll animations for elements with .gsap-parallax
     const parallaxElements = gsap.utils.toArray('.gsap-parallax');
     
@@ -37,16 +56,19 @@ export default function Home() {
         }
       });
     });
-  }, { scope: container });
+  }, { scope: container, dependencies: [isLoading] });
 
   return (
-    <main ref={container}>
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Education />
-    </main>
+    <>
+      <Preloader isLoading={isLoading} />
+      <main ref={container}>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+      </main>
+    </>
   );
 }
