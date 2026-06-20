@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import AOS from 'aos';
 
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -21,8 +23,15 @@ if (typeof window !== 'undefined') {
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const container = useRef<HTMLElement>(null);
-
   const lenis = useLenis();
+
+  // Scroll Progress Setup
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     // Simulate loading time
@@ -40,6 +49,15 @@ export default function Home() {
       lenis.stop();
     } else {
       lenis.start();
+      // Initialize AOS when loading finishes and Lenis starts
+      AOS.init({
+        duration: 800,
+        easing: 'ease-out-back',
+        once: false,
+        mirror: true,
+      });
+      // Refresh AOS on scroll/layout changes
+      AOS.refresh();
     }
   }, [lenis, isLoading]);
 
@@ -69,6 +87,8 @@ export default function Home() {
   return (
     <>
       <Preloader isLoading={isLoading} />
+      <motion.div className="scroll-progress" style={{ scaleX }} />
+      <div className="blueprint-grid" />
       <main ref={container}>
         <Hero />
         <About />

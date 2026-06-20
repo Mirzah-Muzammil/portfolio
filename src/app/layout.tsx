@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
-import { Raleway } from "next/font/google";
+import { Space_Mono, Inter } from "next/font/google";
 
-const raleway =  Raleway({
-  variable: "--font-raleway",
+const spaceMono = Space_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={raleway.variable}>
+    <html lang="en" className={`${inter.variable} ${spaceMono.variable}`}>
       <body>
         <SmoothScroll>
           {children}

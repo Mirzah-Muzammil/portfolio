@@ -1,20 +1,28 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import styles from './Education.module.css';
 
 export default function Education() {
   return (
-    <section className="section  container" id="education" style={{marginBottom: "-4rem"}}>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+    <section className="section container" id="education" style={{marginBottom: "-4rem"}}>
+      <div
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
         <h2 className="section-title">Education</h2>
         
-        <div className={`glass-panel ${styles.eduCard}`}>
+        <div 
+          className={styles.eduCard}
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          {/* Corner plus decorations */}
+          <div className="corner-decor corner-decor-tl"></div>
+          <div className="corner-decor corner-decor-tr"></div>
+          <div className="corner-decor corner-decor-bl"></div>
+          <div className="corner-decor corner-decor-br"></div>
+          <div className={styles.boxLabel}>[EDU_BLOCK_1]</div>
+
           <div className={styles.header}>
             <div>
               <h3 className={styles.degree}>Bachelor of Computer Science</h3>
@@ -23,14 +31,12 @@ export default function Education() {
             <div className={styles.date}>2020 – 2023</div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      <motion.footer 
+      <footer 
         className={styles.footer}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        data-aos="fade-up"
+        data-aos-delay="400"
       >
         <div className={styles.footerContent}>
           <p>© {new Date().getFullYear()} Mirzah Muzammil. All rights reserved.</p>
@@ -40,7 +46,7 @@ export default function Education() {
             <a href="mailto:mirzaahmuzammil@gmail.com">Email</a>
           </div>
         </div>
-      </motion.footer>
+      </footer>
     </section>
   );
 }

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import styles from './Experience.module.css';
 
 const experiences = [
@@ -24,25 +23,28 @@ const experiences = [
 export default function Experience() {
   return (
     <section className="section container" id="experience">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+      <div
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
-        <h2 className="section-title gsap-parallax" data-speed="0.2">Work Experience</h2>
+        <h2 className="section-title">Work Experience</h2>
         
         <div className={styles.timeline}>
           {experiences.map((exp, idx) => (
             <div key={idx} className={styles.timelineItem}>
               <div className={styles.timelineDot}></div>
-              <motion.div 
-                className={`glass-panel ${styles.content}`}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+              <div 
+                className={styles.content}
+                data-aos="fade-left"
+                data-aos-delay="200"
               >
+                {/* Corner plus decorations */}
+                <div className="corner-decor corner-decor-tl"></div>
+                <div className="corner-decor corner-decor-tr"></div>
+                <div className="corner-decor corner-decor-bl"></div>
+                <div className="corner-decor corner-decor-br"></div>
+                <div className={styles.boxLabel}>[EXP_BLOCK_{idx + 1}]</div>
+
                 <div className={styles.header}>
                   <div>
                     <h3 className={styles.role}>{exp.role}</h3>
@@ -56,11 +58,11 @@ export default function Experience() {
                     <li key={bIdx}>{item}</li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

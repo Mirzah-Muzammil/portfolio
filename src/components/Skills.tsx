@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import styles from './Skills.module.css';
 
 const skillCategories = [
@@ -30,51 +29,39 @@ const skillCategories = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
-
 export default function Skills() {
   return (
     <section className="section container" id="skills">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+      <div 
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
-        <h2 className="section-title gsap-parallax" data-speed="0.2">Technical Skills</h2>
+        <h2 className="section-title">Technical Skills</h2>
         
-        <motion.div 
-          className={styles.grid}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
+        <div className={styles.grid}>
           {skillCategories.map((category, idx) => (
-            <motion.div key={idx} variants={itemVariants} className={`glass-panel ${styles.skillCard}`}>
+            <div 
+              key={idx} 
+              className={styles.skillCard}
+              data-aos="fade-up"
+              data-aos-delay={idx * 100}
+            >
+              {/* Corner plus decorations */}
+              <div className="corner-decor corner-decor-tl"></div>
+              <div className="corner-decor corner-decor-tr"></div>
+              <div className="corner-decor corner-decor-bl"></div>
+              <div className="corner-decor corner-decor-br"></div>
+              
               <h3 className={styles.categoryTitle}>{category.title}</h3>
               <div className={styles.skillTags}>
                 {category.skills.map((skill, sIdx) => (
                   <span key={sIdx} className={styles.tag}>{skill}</span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

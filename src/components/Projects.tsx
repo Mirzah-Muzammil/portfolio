@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import styles from './Projects.module.css';
 
@@ -40,29 +39,34 @@ const projects = [
 export default function Projects() {
   return (
     <section className="section container" id="projects">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+      <div
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
-        <h2 className="section-title gsap-parallax" data-speed="0.2">Featured Projects</h2>
+        <h2 className="section-title">Featured Projects</h2>
         
         <div className={styles.grid}>
           {projects.map((project, idx) => (
-            <motion.div 
+            <div 
               key={idx} 
-              className={`glass-panel ${styles.card}`}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              className={styles.card}
+              data-aos="fade-up"
+              data-aos-delay={idx * 100}
             >
+              {/* Corner plus decorations */}
+              <div className="corner-decor corner-decor-tl"></div>
+              <div className="corner-decor corner-decor-tr"></div>
+              <div className="corner-decor corner-decor-bl"></div>
+              <div className="corner-decor corner-decor-br"></div>
+              <div className={styles.boxLabel}>[PROJ_BLOCK_{idx + 1}]</div>
+
               <div className={styles.header}>
                 <h3 className={styles.title}>
                   {project.title}
                 </h3>
                 {project.link && (
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.link} aria-label={`View ${project.title}`}>
-                    <ExternalLink size={20} />
+                    <ExternalLink size={16} />
                   </a>
                 )}
               </div>
@@ -72,10 +76,10 @@ export default function Projects() {
                   <span key={tIdx} className={styles.tech}>{tech}</span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

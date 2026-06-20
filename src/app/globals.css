@@ -1,18 +1,22 @@
+@import "aos/dist/aos.css";
+
 :root {
-  /* Ultra Premium Dark Theme */
-  --bg-primary: #050505;
-  --bg-secondary: #0f0f11;
-  --bg-glass: rgba(255, 255, 255, 0.02);
-  --bg-glass-hover: rgba(255, 255, 255, 0.05);
-  --border-glass: rgba(255, 255, 255, 0.05);
+  /* White Monochromatic Futuristic Boxy Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f0f0f0;
+  --border-color: #000000;
+  --border-light: #e2e8f0;
   
-  --text-primary: #f8f8f8;
-  --text-secondary: #b4c3ffff;
-  --text-muted: #b7b7b7ff;
+  --text-primary: #000000;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
   
-  --accent-primary: #38bdf8;
-  --accent-secondary: #818cf8;
-  --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  --accent-primary: #000000;
+  --accent-secondary: #475569;
+  
+  --font-mono-family: var(--font-mono), monospace;
+  --font-sans-family: var(--font-sans), sans-serif;
   
   --nav-height: 80px;
   --container-max: 1200px;
@@ -27,10 +31,10 @@
 html, body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-raleway), sans-serif;
+  font-family: var(--font-sans-family);
   scroll-behavior: auto;
   overflow-x: hidden;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 /* Lenis Recommended CSS */
@@ -59,41 +63,100 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding:20px 20px;
+  padding: 20px 20px;
+  background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Global Grid lines decoration - Futuristic blueprint style */
+.blueprint-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 a:hover {
-  color: var(--accent-primary);
+  color: var(--text-muted);
 }
 
-/* Glassmorphism utility */
+/* Boxy Panels */
 .glass-panel {
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
-  border-radius: 16px;
-  transition: all 0.3s ease;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0px !important; /* Force sharp corners */
+  box-shadow: 4px 4px 0px var(--border-color);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 2rem;
+  position: relative;
 }
 
 .glass-panel:hover {
-  background: var(--bg-glass-hover);
-  border-color: rgba(255, 255, 255, 0.15);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--border-color);
+  background: var(--bg-secondary);
 }
 
-/* Gradient Text utility */
-.text-gradient {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+/* Monochromatic Tech Buttons */
+.btn-boxy-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-mono-family);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border-radius: 0px !important;
+}
+
+.btn-boxy-primary:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  box-shadow: 4px 4px 0px var(--border-color);
+  transform: translate(-2px, -2px);
+}
+
+.btn-boxy-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-mono-family);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border-radius: 0px !important;
+}
+
+.btn-boxy-secondary:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--border-color);
 }
 
 /* Global Container */
@@ -108,43 +171,70 @@ a:hover {
 .section {
   padding: 100px 0;
   position: relative;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section:last-child {
+  border-bottom: none;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-family: var(--font-mono-family);
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  display: inline-block;
+  letter-spacing: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 1.2rem;
+  background: var(--bg-primary);
+  box-shadow: 4px 4px 0px var(--border-color);
   position: relative;
+  border-radius: 0px !important;
+}
+
+.section-title::before {
+  content: "// ";
+  color: var(--text-muted);
 }
 
 .section-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 60px;
-  height: 4px;
-  background: var(--accent-gradient);
-  border-radius: 2px;
+  display: none !important;
 }
 
-/* Scrollbar styling */
+/* Corner + decorations */
+.corner-decor {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  z-index: 5;
+}
+.corner-decor-tl { top: -4px; left: -4px; }
+.corner-decor-tr { top: -4px; right: -4px; }
+.corner-decor-bl { bottom: -4px; left: -4px; }
+.corner-decor-br { bottom: -4px; right: -4px; }
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
+  border-left: 1px solid var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-glass-hover);
-  border-radius: 5px;
+  background: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: #333;
 }
