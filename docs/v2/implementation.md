@@ -13,7 +13,7 @@ Implementation: keep the existing Next.js architecture; one homepage component a
 - [x] Run TypeScript, lint on edited files, existing tests and production build.
 - [x] Save side-by-side evidence and document remaining differences honestly.
 
-Known intentional differences: personal copy, contact destinations and reference imagery used as temporary placeholders. No claim of literal 100 percent visual identity when text differs. Template attribution retained for temporary reference assets.
+Known intentional differences: personal copy, contact destinations and reference imagery used as temporary placeholders. No claim of literal 100 percent visual identity when text differs.
 
 Final evidence: `evidence/v2/comparison.html`, 25 paired screenshot states, geometry and motion samples. Browser reduced-motion emulation was not performed; the preference is handled in code. Personal content prevents a literal pixel-identical certification. This verification was performed locally on branch v2. Hosting status must be checked separately from Git publication.
 

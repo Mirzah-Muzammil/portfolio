@@ -610,8 +610,7 @@
   color: #111;
 }
 .credits {
-  display: grid;
-  grid-template-columns: 1fr 286px 1fr;
+  display: block;
   padding: 0 20px 40px;
   gap: 0;
   color: #777;
@@ -771,8 +770,7 @@
   .step p {
     font-size: 16px;
   }
-  .footerMeta,
-  .credits {
+  .footerMeta {
     grid-template-columns: 1fr 286px 1fr;
   }
   .footerMeta {
@@ -980,7 +978,6 @@
   }
   .credits {
     padding: 0 16px 40px;
-    grid-template-columns: 1fr 1fr;
     font-size: 11px;
   }
   .dialogContent {
@@ -1488,10 +1485,7 @@
     font-size: 14px;
   }
   .credits {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    height: 80px;
+    height: 44px;
     padding: 0 20px 24px;
     font-size: 14px;
     line-height: 20px;
@@ -1696,9 +1690,6 @@
     grid-column: 1;
     grid-row: 2;
     text-align: left;
-  }
-  .credits {
-    grid-template-columns: 1fr 286px;
   }
 }
 @media (min-width: 1200px) {

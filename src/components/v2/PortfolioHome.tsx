@@ -769,14 +769,6 @@ export default function PortfolioHome() {
             >
               ↗ BUILT WITH NEXT.JS
             </a>
-            <a
-              href="https://ninapark.framer.website/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              DESIGN BY AKRITI
-            </a>
-            <span />
           </div>
         </div>
       </footer>
