@@ -1,0 +1,33 @@
+{
+  "branch": "v2",
+  "screenshotPairs": 25,
+  "productionBuild": "passed",
+  "typescript": "passed",
+  "editedFileLint": "passed",
+  "whitespaceCheck": "passed",
+  "browserErrors": [],
+  "tickerPixelsPerSecond": 50,
+  "orbitSeconds": 30,
+  "desktopServiceHoverClick": "stays expanded",
+  "tabletFooterDirectJump": "social links visible",
+  "reducedMotion": "code inspected; browser emulation not performed",
+  "deployment": "not requested; local only",
+  "2026-10-12-gallery-update": {
+    "productionBuild": "passed",
+    "typescript": "passed",
+    "editedFileLint": "passed",
+    "phoneWidth": 390,
+    "phoneDialogWidth": 366,
+    "horizontalOverflow": false,
+    "escapeFocusReturn": "passed",
+    "reopenScrollReset": "passed",
+    "stickyClose": "passed",
+    "websiteScreenshots": [
+      "Noor",
+      "Monkey Adventure",
+      "Learnspire"
+    ],
+    "attendanceArtwork": "unchanged",
+    "ecommerceScreenshot": "pending preview URL; text placeholder used"
+  }
+}

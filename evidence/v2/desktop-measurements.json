@@ -1,0 +1,66 @@
+{
+  "reference": [
+    {
+      "h": 746,
+      "name": "First Fold",
+      "y": 0
+    },
+    {
+      "h": 1560,
+      "name": "Work",
+      "y": 746
+    },
+    {
+      "h": 863.21875,
+      "name": "Services",
+      "y": 2306
+    },
+    {
+      "h": 900,
+      "name": "Approach",
+      "y": 3169.21875
+    },
+    {
+      "h": 1360,
+      "name": "explorations",
+      "y": 4069.21875
+    },
+    {
+      "h": 746,
+      "name": "Footer",
+      "y": 5429.21875
+    }
+  ],
+  "local": [
+    {
+      "h": 746,
+      "name": "first-fold",
+      "y": 0
+    },
+    {
+      "h": 1560,
+      "name": "projects",
+      "y": 746
+    },
+    {
+      "h": 863.171875,
+      "name": "services",
+      "y": 2306
+    },
+    {
+      "h": 900,
+      "name": "approach",
+      "y": 3169.171875
+    },
+    {
+      "h": 1360,
+      "name": "explorations",
+      "y": 4069.171875
+    },
+    {
+      "h": 746,
+      "name": "contact",
+      "y": 5429.171875
+    }
+  ]
+}

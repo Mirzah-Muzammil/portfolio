@@ -1,0 +1,26 @@
+[
+  {
+    "name": "web development",
+    "expanded": "true"
+  },
+  {
+    "name": "mobile apps",
+    "expanded": "true"
+  },
+  {
+    "name": "backend & apis",
+    "expanded": "true"
+  },
+  {
+    "name": "cms integration",
+    "expanded": "true"
+  },
+  {
+    "name": "web design",
+    "expanded": "true"
+  },
+  {
+    "name": "deployment",
+    "expanded": "true"
+  }
+]

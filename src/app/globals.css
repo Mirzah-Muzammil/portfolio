@@ -1,240 +1,97 @@
-@import "aos/dist/aos.css";
+@import "tailwindcss";
+
+@font-face {
+  font-family: Geist;
+  src: url("/v2/geist-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Geist;
+  src: url("/v2/geist-medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/v2/geist-mono.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Gambarino;
+  src: url("/v2/gambarino.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
 :root {
-  /* White Monochromatic Futuristic Boxy Theme */
-  --bg-primary: #ffffff;
-  --bg-secondary: #fafafa;
-  --bg-tertiary: #f0f0f0;
-  --border-color: #000000;
-  --border-light: #e2e8f0;
-  
-  --text-primary: #000000;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  
-  --accent-primary: #000000;
-  --accent-secondary: #475569;
-  
-  --font-mono-family: var(--font-mono), monospace;
-  --font-sans-family: var(--font-sans), sans-serif;
-  
-  --nav-height: 80px;
-  --container-max: 1200px;
+  -webkit-font-smoothing: antialiased;
 }
-
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  -webkit-font-smoothing: inherit;
 }
-
-html, body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--font-sans-family);
+html {
+  position: relative;
   scroll-behavior: auto;
-  overflow-x: hidden;
-  letter-spacing: 1px;
+  background: #fff;
 }
-
-/* Lenis Recommended CSS */
 html.lenis,
 html.lenis body {
   height: auto;
 }
-
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
 body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 20px;
-  background-image: 
-    radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
-  background-size: 30px 30px;
+  margin: 0;
+  color: #000;
+  background: #fff;
+  font-family: Geist, Arial, sans-serif;
 }
-
-/* Global Grid lines decoration - Futuristic blueprint style */
-.blueprint-grid {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 100px 100px;
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
-
+button {
+  font: inherit;
+}
 a {
   color: inherit;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #3b76cf;
+  outline-offset: 5px;
+}
+::selection {
+  background: #dcf39b;
+  color: #111;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    position: relative;
+    scroll-behavior: auto;
+  }
 }
 
-a:hover {
-  color: var(--text-muted);
-}
-
-/* Boxy Panels */
-.glass-panel {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color) !important;
-  border-radius: 0px !important; /* Force sharp corners */
-  box-shadow: 4px 4px 0px var(--border-color);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 2rem;
-  position: relative;
-}
-
-.glass-panel:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0px var(--border-color);
-  background: var(--bg-secondary);
-}
-
-/* Monochromatic Tech Buttons */
-.btn-boxy-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: var(--text-primary);
-  color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  padding: 0.85rem 1.6rem;
-  font-family: var(--font-mono-family);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 2px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  border-radius: 0px !important;
-}
-
-.btn-boxy-primary:hover {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  box-shadow: 4px 4px 0px var(--border-color);
-  transform: translate(-2px, -2px);
-}
-
-.btn-boxy-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  padding: 0.85rem 1.6rem;
-  font-family: var(--font-mono-family);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 2px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  border-radius: 0px !important;
-}
-
-.btn-boxy-secondary:hover {
-  background: var(--text-primary);
-  color: var(--bg-primary);
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0px var(--border-color);
-}
-
-/* Global Container */
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* Section styling */
-.section {
-  padding: 100px 0;
-  position: relative;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.section:last-child {
-  border-bottom: none;
-}
-
-.section-title {
-  font-family: var(--font-mono-family);
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 4rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid var(--border-color);
-  padding: 0.6rem 1.2rem;
-  background: var(--bg-primary);
-  box-shadow: 4px 4px 0px var(--border-color);
-  position: relative;
-  border-radius: 0px !important;
-}
-
-.section-title::before {
-  content: "// ";
-  color: var(--text-muted);
-}
-
-.section-title::after {
-  display: none !important;
-}
-
-/* Corner + decorations */
-.corner-decor {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-primary);
-  z-index: 5;
-}
-.corner-decor-tl { top: -4px; left: -4px; }
-.corner-decor-tr { top: -4px; right: -4px; }
-.corner-decor-bl { bottom: -4px; left: -4px; }
-.corner-decor-br { bottom: -4px; right: -4px; }
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-  border-left: 1px solid var(--border-color);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--text-primary);
-  border: 1px solid var(--border-color);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #333;
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/v2/neue-montreal-medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
 }
